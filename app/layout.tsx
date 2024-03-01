@@ -11,6 +11,7 @@ import ToasterProvider from '@/app/providers/ToasterProvider';
 import './globals.css'
 import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
+import { ThemeProvider } from './components/context/ThemeContext';
 
 export const metadata = {
   title: 'Airbnb',
@@ -30,7 +31,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={`${font.className} bg-slate-50 dark:bg-[#0d1117] `}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <ClientOnly>
           <ToasterProvider />
           <LoginModal />
@@ -42,6 +44,7 @@ export default async function RootLayout({
         <div className="pb-20 pt-28">
           {children}
         </div>
+        </ThemeProvider >
       </body>
     </html>
   )

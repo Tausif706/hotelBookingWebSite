@@ -118,6 +118,7 @@ const Modal: React.FC<ModalProps> = ({
               flex-col 
               w-full 
               bg-white 
+              dark:bg-[#0d111f]
               outline-none 
               focus:outline-none
             "
@@ -151,7 +152,7 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">
+              <div className="relative p-6 flex-auto dark:text-[#393636]">
                 {body}
               </div>
               {/*footer*/}
