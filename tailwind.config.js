@@ -7,7 +7,14 @@ module.exports = {
   ],
   darkMode: ["class"],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        '360': '360deg',
+      },
+      transitionDuration: {
+        '3000': '3000ms', // Add your custom duration here
+      },
+    },
   },
   plugins: [],
 }

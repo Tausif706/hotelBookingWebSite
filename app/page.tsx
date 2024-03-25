@@ -7,6 +7,7 @@ import getListings, {
 } from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
+import FloatingIcon from "./components/FloatingSearch";
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -49,6 +50,7 @@ const Home = async ({ searchParams }: HomeProps) => {
           ))}
         </div>
       </Container>
+      <FloatingIcon />
     </ClientOnly>
   )
 }

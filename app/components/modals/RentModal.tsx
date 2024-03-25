@@ -98,18 +98,29 @@ const RentModal = () => {
 
     axios.post('/api/listings', data)
     .then(() => {
+      axios.post('https://hotelbookingapi-3.onrender.com/store', data)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          console.log("Error occurred while triggering the second API");
+        });
+        
       toast.success('Listing created!');
       router.refresh();
       reset();
-      setStep(STEPS.CATEGORY)
+      setStep(STEPS.CATEGORY);
       rentModal.onClose();
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error('Something went wrong:', error);
       toast.error('Something went wrong.');
     })
     .finally(() => {
       setIsLoading(false);
-    })
+    });
+
   }
 
   const actionLabel = useMemo(() => {
